@@ -154,6 +154,32 @@ Factory
 - https://www.slideshare.net/weaveworks/an-actor-model-in-go-65174438
 - https://medium.com/@teivah/an-introduction-to-gosiris-an-actor-framework-for-go-e0e3ad15b3c7
 
+## Testing
+
+- Keep the _test.go next to the main files.
+- Used a shared mock subpackage
+
+## Naming
+
+- Choose package names that suggest well what can be expected inside.
+- Avoid generic names like util, common etc.
+- Follow the usual go conventions.
+- Avoid stutter(e.g. strings.Reader not strings.StringReader)
+
+## Frameworks?
+
+- Take as a references
+
+## Putting it all together
+
+- Two top-level directories: cmd ( for each of  your binaries/inputs ) and pkg( for all your codez/domain)
+- Domain types: insisde the root package
+- Dependencies: own packages
+- Mocks : shared subpackage.
+- All other project files(build, dependencies, Docker,...) root dir of  your project
+- Main package initialises and ties everything together
+- Avoid global scope and init().
+
 ## Attachments
 
 [img1]: ./assets/the-hexagonal-architecture.png
@@ -161,6 +187,7 @@ Factory
 
 ## Refs
 
+- https://github.com/katzien/go-structure-examples
 - https://www.brianstorti.com/the-actor-model/
 - https://fideloper.com/hexagonal-architecture
 - https://en.wikipedia.org/wiki/Domain-driven_design
